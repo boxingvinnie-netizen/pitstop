@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pitstop – free PC performance and upgrade advisor for gamers</title>
+<meta name="description" content="Pitstop is a free Windows app for PC gamers. It finds what is slowing your games, fixes it safely with undo, and compares UK prices for the upgrade that is worth the money.">
+<link rel="icon" href="assets/icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Imbue:opsz,wght@10..100,400&family=Albert+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="bar">
+  <nav aria-label="Main">
+    <a href="#checks">What it checks</a>
+    <a href="#check">Upgrade check</a>
+    <a href="#shops">Shops</a>
+    <a href="#questions">Questions</a>
+    <a class="btn btn-accent" href="#check">Check an upgrade</a>
+  </nav>
+</header>
+
+<main id="main">
+<div class="split">
+  <!-- The fixed half: Pitstop's own window, showing the tab each section talks about. -->
+  <div class="stage" aria-hidden="true">
+    <div class="win" data-ui data-state="overview">
+      <div class="win-top"><span class="win-logo"></span>Pitstop<span class="win-dots"><i></i><i></i><i></i></span></div>
+      <div class="win-body">
+        <ul class="win-nav">
+          <li data-for="overview">Overview</li>
+          <li data-for="hardware">Hardware</li>
+          <li data-for="fps">FPS &amp; settings</li>
+          <li data-for="startup">Startup</li>
+          <li data-for="undo">History &amp; undo</li>
+          <li data-for="prices">Parts &amp; prices</li>
+        </ul>
+        <div class="win-panes">
+          <section class="pane" data-pane="overview">
+            <h4>Overview</h4>
+            <div class="ui-row2">
+              <div class="ui-card ui-score">
+                <svg viewBox="0 0 120 120" width="104" height="104"><circle cx="60" cy="60" r="50" class="ring-bg"/><circle cx="60" cy="60" r="50" class="ring" stroke-dasharray="270 314"/></svg>
+                <b>86</b><small>Health</small>
+              </div>
+              <div class="ui-card ui-list">
+                <p class="ui-h">Top fixes</p>
+                <p><span class="tag hi">High</span>Turn on XMP: RAM runs at 4800 of 6000 MT/s</p>
+                <p><span class="tag hi">High</span>Monitor is at 60 Hz, it can do 165 Hz</p>
+                <p><span class="tag md">Medium</span>Game Bar records in the background</p>
+              </div>
+            </div>
+            <div class="ui-tiles">
+              <div class="ui-card"><small>CPU</small><b>7%</b></div>
+              <div class="ui-card"><small>GPU</small><b>3%</b></div>
+              <div class="ui-card"><small>GPU temp</small><b>41°C</b></div>
+              <div class="ui-card"><small>RAM</small><b>38%</b></div>
+            </div>
+          </section>
+
+          <section class="pane" data-pane="hardware">
+            <h4>Hardware</h4>
+            <div class="ui-card">
+              <p class="ui-h">Memory</p>
+              <p class="ui-big">32 GB DDR5 <span class="dim">at 4800 MT/s</span> <span class="tag ok">Dual channel</span></p>
+              <p class="kv"><span>DIMM A2</span><span>16 GB · rated 6000 · running 4800</span></p>
+              <p class="kv"><span>DIMM B2</span><span>16 GB · rated 6000 · running 4800</span></p>
+              <p class="warn">XMP/EXPO is off. Turning it on in the BIOS gives the rated 6000 MT/s.</p>
+            </div>
+            <div class="ui-card">
+              <p class="ui-h">Monitors</p>
+              <p class="kv"><span>27″ main display</span><span>2560×1440 @ 60 Hz <span class="tag md">supports 165 Hz</span></span></p>
+            </div>
+            <div class="ui-card">
+              <p class="ui-h">Graphics card</p>
+              <p class="kv"><span>PCIe link</span><span>Gen 4 x16 <span class="tag ok">full speed</span></span></p>
+            </div>
+          </section>
+
+          <section class="pane" data-pane="fps">
+            <h4>Measure FPS</h4>
+            <div class="ui-card">
+              <p class="ui-h">Cyberpunk 2077 · before and after</p>
+              <div class="ui-fps">
+                <div><small>Average</small><b>98 → 112</b></div>
+                <div><small>1% low</small><b>61 → 78</b></div>
+                <div><small>0.1% low</small><b>44 → 63</b></div>
+              </div>
+              <svg class="ui-graph" viewBox="0 0 300 70" preserveAspectRatio="none"><polyline points="0,40 15,38 30,42 45,36 60,55 75,37 90,39 105,35 120,62 135,38 150,36 165,40 180,37 195,58 210,39 225,36 240,38 255,41 270,37 285,39 300,38" class="g-before"/><polyline points="0,30 15,29 30,31 45,28 60,36 75,29 90,30 105,28 120,38 135,29 150,28 165,30 180,29 195,35 210,29 225,28 240,29 255,30 270,28 285,29 300,29" class="g-after"/></svg>
+              <p class="dim">Frame times over 60 seconds. Grey before, green after XMP.</p>
+            </div>
+            <div class="ui-card"><p class="kv"><span>Bottleneck</span><span>GPU 97% busy · <b class="okc">GPU-bound</b></span></p></div>
+          </section>
+
+          <section class="pane" data-pane="startup">
+            <h4>Startup</h4>
+            <div class="ui-card ui-rows">
+              <p><span>Discord</span><span class="tag md">Not needed at sign-in</span><i class="sw"></i></p>
+              <p><span>Spotify</span><span class="tag md">Not needed at sign-in</span><i class="sw"></i></p>
+              <p><span>Steam</span><span class="tag ok">Fine to keep</span><i class="sw on"></i></p>
+              <p><span>Graphics driver helper</span><span class="tag ok">Keep</span><i class="sw on"></i></p>
+              <p><span>Windows Security</span><span class="tag lock">Locked</span><i class="sw on lock"></i></p>
+            </div>
+            <div class="ui-card"><p class="kv"><span>Turning off the two marked</span><span>about 2.4 s faster sign-in</span></p></div>
+          </section>
+
+          <section class="pane" data-pane="undo">
+            <h4>History &amp; undo</h4>
+            <div class="ui-card"><p class="okc">Restore point created: “Pitstop – before changes”</p></div>
+            <div class="ui-card ui-rows">
+              <p><span>Discord: off at sign-in</span><span class="dim">today 09:14</span><b class="undo">Undo</b></p>
+              <p><span>Game Bar recording: off</span><span class="dim">today 09:14</span><b class="undo">Undo</b></p>
+              <p><span>Power plan: Balanced → High performance</span><span class="dim">yesterday</span><b class="undo done">Undone</b></p>
+            </div>
+          </section>
+
+          <section class="pane" data-pane="prices">
+            <h4>Parts &amp; prices</h4>
+            <div class="ui-card ui-rows">
+              <p class="ui-h">RTX 5070 Ti 16 GB · same product at 5 shops</p>
+              <p><span>CCL</span><span class="tag ok">Cheapest</span><b>£719</b></p>
+              <p><span>Scan</span><span></span><b>£729</b></p>
+              <p><span>Overclockers UK</span><span></span><b>£739</b></p>
+              <p><span>Amazon UK</span><span></span><b>£749</b></p>
+              <p class="flag"><span>Marketplace seller</span><span class="tag bad">Too cheap to trust</span><b>£410</b></p>
+            </div>
+            <div class="ui-card"><p class="kv"><span>Fits your PC</span><span><b class="okc">Yes</b> · 850 W PSU is enough</span></p></div>
+            <p class="dim">Example prices</p>
+          </section>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col">
+    <section class="hero" data-stage="overview">
+      <div class="hero-text">
+        <h1><span class="wordmark">Pitstop</span></h1>
+        <p class="lead">A free Windows app for PC gamers. It finds what is slowing your games, fixes it safely, and tells you which upgrade is worth the money.</p>
+        <p class="hero-actions"><a class="btn btn-accent" href="#check">Check an upgrade</a> <a class="link-light" href="#checks">See what it checks</a></p>
+      </div>
+    </section>
+
+    <section id="checks" class="read" aria-labelledby="checks-h">
+      <h2 id="checks-h">What Pitstop checks</h2>
+      <p class="intro">Most gaming PCs are a few settings away from the speed their owner paid for. Pitstop reads your hardware and Windows, explains each finding in plain English and fixes what is safe to fix.</p>
+
+      <article class="mod" data-stage="hardware">
+        <figure class="mod-pic"><img src="assets/computer-ram-memory.webp" alt="A memory module on a white desk" width="1024" height="683" loading="lazy"></figure>
+        <div class="mod-text">
+          <h3>Hardware that is set up right</h3>
+          <p>RAM running below its rated speed, memory in one channel, a 165 Hz monitor left at 60 Hz, a graphics card in a slow slot, a nearly full system drive.</p>
+          <p>Each one is shown with what you have, what it should be, and how to fix it.</p>
+        </div>
+      </article>
+
+      <article class="mod" data-stage="fps">
+        <div class="mod-pic mod-ui" data-ui>
+          <p class="mu-t">Elden Ring · 1440p</p>
+          <p class="mu-n">142 <small>FPS avg</small></p>
+          <p class="mu-s">1% low 104 · 0.1% low 81</p>
+        </div>
+        <div class="mod-text">
+          <h3>Real FPS, measured while you play</h3>
+          <p>Average FPS with 1% and 0.1% lows, from Windows' own frame events. Measure, change one thing, measure again.</p>
+          <p>Pitstop also tells you whether each game is held back by the graphics card, the CPU or a frame cap.</p>
+        </div>
+      </article>
+
+      <article class="mod" data-stage="startup">
+        <figure class="mod-pic"><img src="assets/computer-motherboard-close-up.webp" alt="Copper heat pipes and memory slots on a motherboard" width="1024" height="678" loading="lazy"></figure>
+        <div class="mod-text">
+          <h3>Startup and background apps</h3>
+          <p>Every startup item with a plain verdict, its publisher's signature and what it costs at sign-in. Security software is locked and cannot be switched off.</p>
+          <p>The Background tab shows which apps use CPU, RAM and graphics memory while you game.</p>
+        </div>
+      </article>
+
+      <article class="mod" data-stage="fps">
+        <div class="mod-pic mod-ui" data-ui>
+          <p class="mu-t">Gaming settings</p>
+          <p class="mu-r"><span>Hardware GPU scheduling</span><b>On</b></p>
+          <p class="mu-r"><span>Game Mode</span><b>On</b></p>
+          <p class="mu-r"><span>Variable refresh rate</span><b class="mu-w">Off · Fix</b></p>
+        </div>
+        <div class="mod-text">
+          <h3>Windows gaming settings</h3>
+          <p>Game Mode, GPU scheduling, variable refresh rate, background recording and the power plan, checked against your hardware.</p>
+          <p>No registry folklore: only settings with a measurable effect.</p>
+        </div>
+      </article>
+    </section>
+
+    <section id="safety" class="read steps" aria-labelledby="safety-h">
+      <h2 id="safety-h">Safe by design</h2>
+      <div class="step" data-stage="overview">
+        <p class="step-s">First it only reads. Nothing changes until you press Fix.</p>
+        <p>Pitstop starts read-only and explains every finding before offering anything.</p>
+      </div>
+      <div class="step" data-stage="startup">
+        <p class="step-s">Then it makes a restore point and changes only what you chose.</p>
+        <p>It uses Windows' own switches, the same ones Task Manager uses. Risky items need two confirmations.</p>
+      </div>
+      <div class="step" data-stage="undo">
+        <p class="step-s">Every change is logged, with one-click Undo.</p>
+        <p>Undo any change later from History, or roll the whole PC back with the restore point.</p>
+      </div>
+    </section>
+
+    <section id="shops" class="read" aria-labelledby="shops-h" data-stage="prices">
+      <h2 id="shops-h">Prices from UK shops</h2>
+      <p class="intro">When an upgrade is worth it, Pitstop finds where to buy it. Listings are matched by barcode and part number, so the cheapest price is for the same product, not a lookalike.</p>
+      <ul class="shops">
+        <li><span class="dot" style="--c:#e1251b"></span>Scan<span>PC parts specialist</span></li>
+        <li><span class="dot" style="--c:#0a7ad8"></span>Overclockers UK<span>PC parts specialist</span></li>
+        <li><span class="dot" style="--c:#c8102e"></span>CCL<span>PC parts specialist</span></li>
+        <li><span class="dot" style="--c:#ec1c24"></span>Ebuyer<span>Computing retailer</span></li>
+        <li><span class="dot" style="--c:#00a0dc"></span>Box<span>Computing retailer</span></li>
+        <li><span class="dot" style="--c:#5b2d90"></span>Currys<span>High street</span></li>
+        <li><span class="dot" style="--c:#d42114"></span>Argos<span>High street</span></li>
+        <li><span class="dot" style="--c:#ff9900"></span>Amazon UK<span>Featured offer only</span></li>
+        <li><span class="dot" style="--c:#0064d2"></span>eBay UK<span>New items, top-rated sellers</span></li>
+      </ul>
+      <p class="note">Listings far below the usual price, or from sellers with weak feedback, are marked as untrusted and never shown as the best deal. Some shop links may earn Pitstop a small commission; it never changes which price is shown as cheapest.</p>
+    </section>
+  </div>
+</div>
+
+<section id="check" class="check" aria-labelledby="check-h">
+  <div class="check-plate" data-ui>
+    <div class="cp-head">Upgrade check<span id="cp-res">1440p</span></div>
+    <div class="cp-meter"><p><span>Graphics card performance you get</span><b id="cp-used">–</b></p><div class="bar-track"><i id="cp-bar"></i></div></div>
+    <p class="cp-verdict" id="cp-verdict">Pick your parts to see where the limit is.</p>
+    <div class="cp-pick" id="cp-pick"></div>
+  </div>
+  <div class="check-side">
+    <div class="tabs" role="group" aria-label="Budget">
+      <button type="button" data-budget="300">£300</button>
+      <button type="button" data-budget="500" aria-pressed="true">£500</button>
+      <button type="button" data-budget="800">£800</button>
+      <button type="button" data-budget="1200">£1,200</button>
+    </div>
+    <div class="check-mid">
+      <h2 id="check-h">Is your next upgrade worth it?</h2>
+      <p>Pick your graphics card and CPU. This uses the same model as the app's Upgrades tab: it finds which part holds your games back and the best fix for your budget, at typical UK prices.</p>
+      <label>Your graphics card <select id="cp-gpu"></select></label>
+      <label>Your CPU <select id="cp-cpu"></select></label>
+    </div>
+    <div class="cells" id="cp-shops">
+      <a class="cell cell-ink" href="#" target="_blank" rel="noopener">Search Scan</a>
+      <a class="cell cell-tone" href="#" target="_blank" rel="noopener">Search Overclockers</a>
+    </div>
+  </div>
+</section>
+
+<section class="stats" aria-labelledby="stats-h">
+  <h2 id="stats-h">Light enough to leave on</h2>
+  <div class="mosaic">
+    <figure class="mosaic-pic"><img src="assets/gaming-pc-inside.jpg" alt="Inside a gaming PC: tower cooler, motherboard and graphics card" width="1400" height="1317" loading="lazy"></figure>
+    <div class="tile tile-a"><b>21 MB</b><p>of memory while it waits in the tray, with almost no CPU.</p></div>
+    <div class="tile tile-b"><b>0</b><p>drivers installed. Nothing that weakens Windows security.</p></div>
+  </div>
+</section>
+
+<section id="questions" class="faq" aria-labelledby="faq-h">
+  <h2 id="faq-h">Questions</h2>
+  <div class="faq-text">
+    <p><b>Is Pitstop free?</b> Yes. The app and every check in it are free, with no account and no adverts.</p>
+    <p><b>When can I download it?</b> Pitstop is being tested now. The first public download will be published on this page.</p>
+    <p><b>Which PCs does it work on?</b> Windows 10 and 11 desktops and laptops, with NVIDIA, AMD or Intel graphics.</p>
+    <p><b>Can it break my PC?</b> It only changes things you confirm, makes a restore point first and logs every change with Undo. It does not overclock, install drivers or edit the BIOS.</p>
+    <p><b>Does it speed up my PC by itself?</b> No. It finds the real problems, such as RAM below its rated speed or a monitor at the wrong refresh rate, and shows how much each fix is worth.</p>
+    <p><b>What leaves my PC?</b> Nothing about your PC. With live prices switched on, only part names and barcodes are sent to the price services. You can turn online features off.</p>
+    <p><b>Where do the prices come from?</b> From UK shops' own product feeds and APIs. Without them, Pitstop shows typical prices and links to each shop's search.</p>
+    <p><b>Do the shop links earn money?</b> Some can, through affiliate programmes. That pays for Pitstop and never changes which price is shown as cheapest.</p>
+    <p><b>Does it slow games down?</b> No. In the tray it uses about 21 MB of memory and almost no CPU, and the window can be closed while you play.</p>
+    <p id="privacy"><b>Does this website track me?</b> No. It sets no cookies and runs no analytics. Shop links lead to the shops' own websites, which have their own privacy policies.</p>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <span>Pitstop · PC advisor for gamers</span>
+  <span class="foot-links"><a href="#check">Upgrade check</a><a href="#questions">Questions</a><a href="#privacy">Privacy</a><a href="https://github.com/boxingvinnie-netizen/pitstop/issues">Contact</a></span>
+  <span>© 2026</span>
+  <p class="credits">Photographs: “Workstation-PC” by PantheraLeo1359531, <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>, via <a href="https://commons.wikimedia.org/w/index.php?curid=147930710">Wikimedia Commons</a>; memory module and motherboard photographs from <a href="https://www.rawpixel.com/">rawpixel</a>, CC0.</p>
+</footer>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
