@@ -1,5 +1,5 @@
-// Pitstop site: the window on the left follows the section you are reading,
-// sections rise in as they arrive, and the upgrade check runs Pitstop's own
+// Lumen site: the window on the left follows the section you are reading,
+// sections rise in as they arrive, and the upgrade check runs Lumen's own
 // balance model on the parts catalogue (data.js).
 document.documentElement.classList.add("js");
 
@@ -94,7 +94,7 @@ fill(gpuSel, GPUS, (g) => (/^RTX|^GTX/.test(g[1]) ? "NVIDIA" : /^Radeon/.test(g[
 fill(cpuSel, CPUS, (c) => c[4], "r5-5600");
 
 let budget = 500;
-const gpuCap = (cpu) => 1.2 * cpu - 15; // the GPU score a CPU can feed at 1440p (Pitstop's balance model)
+const gpuCap = (cpu) => 1.2 * cpu - 15; // the GPU score a CPU can feed at 1440p (Lumen's balance model)
 const perf = (cpu, gpu) => Math.min(gpu, gpuCap(cpu));
 const gbp = (n) => `£${n.toLocaleString("en-GB")}`;
 const shopUrl = {
